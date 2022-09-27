@@ -181,3 +181,18 @@ object `Backtick ADT Out` {
   final case class `Case Class`(`a field`: String) extends `Backtick ADT Out`
   case object `Case Object` extends `Backtick ADT Out`
 }
+
+sealed trait GadtIn[+T] extends Product with Serializable
+object GadtIn {
+
+  case object A extends GadtIn[Nothing]
+  final case class B[+T](b: T) extends GadtIn[T]
+  final case class C(s: String) extends GadtIn[String]
+}
+sealed trait GadtOut[+T] extends Product with Serializable
+object GadtOut {
+
+  case object A extends GadtOut[Nothing]
+  final case class B[+T](b: T) extends GadtOut[T]
+  final case class C(s: String) extends GadtOut[String]
+}
