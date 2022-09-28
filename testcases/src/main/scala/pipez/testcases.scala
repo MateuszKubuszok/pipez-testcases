@@ -196,3 +196,18 @@ object GadtOut {
   final case class B[+T](b: T) extends GadtOut[T]
   final case class C(s: String) extends GadtOut[String]
 }
+
+// AnyVals
+
+object AnyVals {
+
+  final class ClassIn(val str: String) extends AnyVal {
+    def another: String = str
+  }
+  final case class CaseClassIn(str: String) extends AnyVal {
+    def another: String = str
+  }
+
+  final class ClassOut(val str: String) extends AnyVal
+  final case class CaseClassOut(str: String) extends AnyVal
+}
